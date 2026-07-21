@@ -2,7 +2,6 @@ import argparse
 import importlib.metadata
 import platform
 from pathlib import Path
-import sys
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -39,9 +38,9 @@ def main() -> None:
     args = parser.parse_args()
 
     print(f"python: {platform.python_version()}")
-    print(f"executable: {sys.executable}")
 
-    if sys.version_info[:2] != (3, 12):
+    major, minor, *_ = platform.python_version_tuple()
+    if (major, minor) != ("3", "12"):
         raise SystemExit("expected Python 3.12")
 
     for package, expected in expected_versions().items():

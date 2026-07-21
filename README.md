@@ -17,3 +17,11 @@ Check packages and MPS:
 ```bash
 python scripts/check_env.py --require-mps
 ```
+
+## Experiments
+
+Create a reproducible experiment record before running training or benchmarks:
+
+```bash
+python scripts/new_experiment.py --help
+```
